@@ -5,10 +5,11 @@ jobs:
     docker:
       - image: alpine:latest
     steps:
+      - checkout
       - run: apk add --update curl
       - run:
           name: Sample Smoke test
-          command:
+          command: |
             URL="https://blog.udacity.com"
             if curl -s --head ${URL} # test if blog.udacity. com exists
             then
